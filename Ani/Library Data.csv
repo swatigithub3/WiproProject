@@ -1,0 +1,15 @@
+﻿book_id,title,author,genre,publication_year,ISBN
+2,1984,George Orwell,Dystopian Fiction,1949,978-0451524935
+3,The Catcher in the Rye ,J.D. Salinger,Coming-of-age Fiction,1951,978-0316769488
+4,The Great Gatsby,F. Scott Fitzgerald ,Literary Fiction,1925,978-0743273565
+5,Harry Potter and the Sorcerer's Stone,J.K. Rowling     ,Fantasy ,1997,978-0590353427
+6,Pride and Prejudice,Jane Austen,Romance,1813,978-0486284736
+7,The Hobbit ,J.R.R. Tolkien   ,Fantasy ,1937,978-0547928227
+8,The Lord of the Rings,J.R.R. Tolkien,Fantasy ,1954,978-0618640157
+9,Moby-Dick,Herman Melville,Adventure ,1851,978-0142437247
+10,War and Peace,Leo Tolstoy,Historical Fiction,1869,978-0140447934
+11,The Chronicles of Narnia,C.S. Lewis   ,Fantasy ,1950,978-0064471046
+12,Frankenstein   ,Mary Shelley ,Horror    ,1818,978-0486282114
+13,The Picture of Dorian Gray,Oscar Wilde,Gothic Fiction,1890,978-1503291484
+14,Brave New World  ,Aldous Huxley,Science Fiction ,1932,978-0060850524
+15,The Adventures of Huckleberry Finn,Mark Twain,Adventure ,1884,978-0486280615
