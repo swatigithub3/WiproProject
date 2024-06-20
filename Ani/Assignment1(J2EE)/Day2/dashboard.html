@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Management Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Assignment1(J2EE)/Day2/dashboard.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Policies
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group mr-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cards for Active and Pending Policies -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">Active Policies</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">10</h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Detail 1</li>
+                                    <li>Detail 2</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">Pending Policies</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">5</h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Detail 1</li>
+                                    <li>Detail 2</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policy Table -->
+                <div class="table-responsive mt-3">
+                    <h2>Insurance Policies</h2>
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Policy Name</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="policyTable">
+                            <!-- Example policies -->
+                            <tr>
+                                <td>1</td>
+                                <td>Health Insurance</td>
+                                <td>Health</td>
+                                <td>Active</td>
+                                <td>
+                                    <button class="btn btn-sm btn-info" onclick="viewPolicyDetails('1')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Car Insurance</td>
+                                <td>Vehicle</td>
+                                <td>Pending</td>
+                                <td>
+                                    <button class="btn btn-sm btn-info" onclick="viewPolicyDetails('2')">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Home Insurance</td>
+                                <td>Property</td>
+                                <td>Inactive</td>
+                                <td>
+                                    <button class="btn btn-sm btn-info" onclick="viewPolicyDetails('3')">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Button to trigger the modal -->
+                <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#policyModal">
+                    Add Policy
+                </button>
+
+                <!-- Modal for adding new policy -->
+                <div class="modal fade" id="policyModal" tabindex="-1" role="dialog" aria-labelledby="policyModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="policyModalLabel">Add New Policy</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="policyForm">
+                                    <div class="form-group">
+                                        <label for="policyName">Policy Name</label>
+                                        <input type="text" class="form-control" id="policyName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="policyType">Policy Type</label>
+                                        <input type="text" class="form-control" id="policyType" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="policyStatus">Status</label>
+                                        <select class="form-control" id="policyStatus">
+                                            <option>Active</option>
+                                            <option>Pending</option>
+                                            <option>Inactive</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add Policy</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for viewing policy details -->
+                <div class="modal fade" id="policyDetailsModal" tabindex="-1" role="dialog" aria-labelledby="policyDetailsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="policyDetailsModalLabel">Policy Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="policyDetails">
+                                <!-- Policy details will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/Assignment1(J2EE)/Day2/dashboard.js"></script>
+</body>
+</html>

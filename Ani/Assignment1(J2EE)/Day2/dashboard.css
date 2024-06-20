@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed;
+}
+
+main {
+    margin-left: 200px; /* Adjust based on sidebar width */
+}
+
+.table th {
+    cursor: pointer;
+}
+
+.table th.asc::after {
+    content: ' \2191'; /* Up arrow */
+}
+
+.table th.desc::after {
+    content: ' \2193'; /* Down arrow */
+}
